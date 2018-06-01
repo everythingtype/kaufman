@@ -3,13 +3,32 @@
 <?php if ( have_rows('gallery_images') ): ?>
 <div class="portfolio">
 	<div class="slides">
+
+		<?php while ( have_rows('gallery_images') ) : the_row(); ?>
+			<?php $image = get_sub_field('image'); ?>
+			<div class="slide"><div class="slideinner">
+				<?php spellerberg_the_image($image,'large'); ?>
+			</div></div>
+		<?php endwhile; ?>
+
+		<div class="prevmask"></div>
+		<div class="nextmask"></div>
+
+	</div>
+
+	<div class="grid">
+
 	<?php while ( have_rows('gallery_images') ) : the_row(); ?>
 		<?php $image = get_sub_field('image'); ?>
-		<div class="slide"><div class="slideinner">
-			<?php spellerberg_the_image($image,'large'); ?>
-		</div></div>
+		<div class="griditem">
+			<div class="padding">
+				<?php spellerberg_the_image($image,'large'); ?>
+			</div>
+		</div>
 	<?php endwhile; ?>
+
 	</div>
+
 </div>
 
 <div class="captionwrap">
@@ -24,7 +43,7 @@
 	<div class="padding">
 
 		<div class="captsgrid">
-			<a class="caption">Caption</a><!-- <span> | </span><a class="grid">Grid</a>-->
+			<a class="caption">Caption</a> <span> | </span><a class="gridtoggle"><span>Grid</span></a>
 		</div>
 
 		<div class="prevnext">

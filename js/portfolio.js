@@ -25,16 +25,18 @@
 		});
 
 		$('.slide').css({
-	 		'height': contentheight +'px',
+			 		'max-height': contentheight +'px',
 		});
-
+		
 		$('.slideinner').css({
-	 		'max-height': contentheight +'px',
+			 		'max-height': contentheight +'px',
+		});
+		
+		$('.slide img').css({
+			 		'max-height': contentheight +'px',
 		});
 
-		$('.slide img').css({
-	 		'max-height': contentheight +'px',
-		});
+
 
 		$('.captionwrap').css({
 	 		'bottom': controlsheight +'px',
@@ -43,6 +45,8 @@
 	}
 
 	function initalizeSlides() {
+
+		$('.grid').hide();
 
 		setSlideHeights();
 
@@ -104,6 +108,25 @@
 
 	}
 
+	function showGrid() {
+		$('.slides').stop().hide();
+		$('.controls').stop().hide();
+		$('.grid').stop().show();
+	}
+
+	function hideGrid(incoming) {
+
+		$('.slides .slide').hide();
+		$('.slides .slide:eq(' + incoming + ')').css('opacity','1').stop().show();
+		currentSlide = incoming;
+
+		$('.grid').stop().hide();
+		$('.slides').stop().show();
+		$('.controls').stop().show();
+
+	}
+
+
 	$(document).ready(function() {
 
 		initalizeSlides();
@@ -116,8 +139,17 @@
 			nextSlide();
 		});
 
-		$('.slideinner img').on( "click", function() {
+		$('.nextmask').on( "click", function() {
 			nextSlide();
+		});
+
+		$('.prevmask').on( "click", function() {
+			prevSlide();
+		});
+
+
+		$('.controls .gridtoggle').on( "click", function() {
+			showGrid();
 		});
 
 		$('.controls .caption').on( "click", function() {
@@ -130,19 +162,24 @@
 			}
 		});
 
+		$('.griditem .padding').on( "click", function() {
+			var slide = $(this).parent().index();
+			hideGrid(slide);
+		});
+
 	});
 
 	$(document).keydown(function(e) {
-		e.preventDefault();
-
 		switch(e.which) {
 			// Guide: 37 = left, 38 = up, 39 = right, 40 = down
 
 			case 37: // left
+				e.preventDefault();
 				prevSlide();
 	        break;
 
 			case 39: // right
+				e.preventDefault();
 				nextSlide();
 			break;
 

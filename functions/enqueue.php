@@ -2,7 +2,7 @@
 
 function csm_enqueue_scripts() {
 
-	$version = "a42";
+	$version = "b3";
 
 	// Remove Unnecessary Code
 	// http://www.themelab.com/2010/07/11/remove-code-wordpress-header/
