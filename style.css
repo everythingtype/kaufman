@@ -44,13 +44,12 @@ img { max-width: 100%; }
 
 /* Header */
 
-.topheader { overflow: hidden; padding: 4px 17px 0 17px; line-height: 20px; /*height: 40px;*/ }
+.topheader { overflow: hidden; padding: 4px 17px 0 17px; line-height: 20px; z-index: 1; position: relative; }
 
 .menutoggle { float: right; font-family: "Icons"; -webkit-font-smoothing: antialiased; font-size: 9px; position: relative; top: -12.5px; padding: 10px 1.5px 0 18.5px; cursor: pointer; }
 .menutoggle:after { content: "\f431"; vertical-align: middle;  }
 .menutoggle.open:after { content: "\f432"; }
 .menutoggle span { display: none; }
-
 
 .topnav { display: none; }
 
@@ -70,7 +69,7 @@ img { max-width: 100%; }
 
 /* Sidenav */
 
-.sidenav { display: none; }
+.sidenav { display: none; z-index: 1; position: relative; }
 
 @media (min-width: 720px) {
 	.sidenav { display: block; text-transform: uppercase; padding: 0 17px; line-height: 20px; width: 150px; float: left; }
@@ -147,9 +146,9 @@ img { max-width: 100%; }
 
 .captionwrap { position: fixed; left: 0; bottom: 0; display: none; color: #808284; width: 100%; }
 .captionwrap.visible { display: block; }
-.captionwrap p { margin-bottom: 0; }
+.captionwrap p { margin: 0; padding: 1em 27px 0 27px; }
 
-.captionwrap .caption { position: absolute; bottom: 0; padding: 0 27px; width: 100%; box-sizing: border-box; background: #fff; }
+.captionwrap .caption { position: absolute; bottom: 0; padding: 0; width: 100%; box-sizing: border-box; background: #fff; }
 
 
 @media (min-height: 400px) {
@@ -159,9 +158,12 @@ img { max-width: 100%; }
 @media (min-width: 720px) {
 
 	.portfolio { margin: 0 17px 0 184px; }
-	.captionwrap { width: 180px; }
-
 	.portfolio .griditem .padding { margin: 0 40px 40px 0; }
+
+	.captionwrap { width: 180px; top: 0;  }
+	.captionwrap p { bottom: 0; position: absolute; }
+	.captionwrap .caption { height: 100%; }
+
 
 }
 
