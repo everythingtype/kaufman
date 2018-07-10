@@ -10,12 +10,12 @@ Developed by Spellerberg Associates, http://www.spellerbergassociates.com/
 */
 
 body { font-family: 'Comb', sans-serif; font-size: 12px; letter-spacing: 0.025em; margin: 0; padding: 0; text-rendering: optimizeLegibility; line-height: 19px; }
-body:after{ display:none; content: 
-	url('images/arrow-prev-gray.svg') 
+body:after{ display:none; content:
+	url('images/arrow-prev-gray.svg')
 	url('images/arrow-next-gray.svg')
-	url('images/arrow-prev-black.png') 
-	url('images/arrow-next-black.png') 
-	url('images/arrow-prev-black@2x.png') 
+	url('images/arrow-prev-black.png')
+	url('images/arrow-next-black.png')
+	url('images/arrow-prev-black@2x.png')
 	url('images/arrow-next-black@2x.png');
 } /* Preload images*/
 
@@ -76,7 +76,7 @@ img { max-width: 100%; }
 	.sidenav { display: block; text-transform: uppercase; padding: 0 17px; line-height: 20px; width: 150px; float: left; }
 	.sidenav ul { list-style: none; margin: 0; padding: 0; }
 	.sidenav li { margin: 0; padding: 0; }
-	
+
 }
 
 /* Mobilenav */
@@ -101,7 +101,7 @@ img { max-width: 100%; }
 @media (min-width: 720px) {
 
 	.homecontent { margin: 0 17px 0 184px; }
-	
+
 }
 
 @media (min-width: 1108px) {
@@ -120,12 +120,13 @@ img { max-width: 100%; }
 .portfolio .grid { overflow: hidden; position: relative; top: 0; width: 100%; position: absolute; }
 
 .portfolio .griditem { max-width: 280px; width: 50%; float: left; line-height: 1; }
-.portfolio .griditem .padding { margin: 0 17px 17px 0; cursor: pointer; }
-
+.portfolio .griditem .padding { margin: 0 17px 17px 0; cursor: pointer; position: relative; }
+.portfolio .griditem .ratio { padding-top: 72.9166666667%; }
+.portfolio .griditem .inner { position: absolute; top: 0; bottom: 0; left: 0; right: 0; overflow: hidden; }
 
 .portfolio .prevmask { display: none; }
 
-.portfolio .nextmask { position: absolute; top: 0; bottom: 0; right: 0; left: 0; z-index: 1000; 
+.portfolio .nextmask { position: absolute; top: 0; bottom: 0; right: 0; left: 0; z-index: 1000;
 	cursor: url("images/arrow-next-black.png"), e-resize;
 	cursor: -webkit-image-set(url("images/arrow-next-black.png") 1x, url("images/arrow-next-black@2x.png") 2x) 0 0, pointer; /* Webkit */
 }
@@ -166,7 +167,7 @@ img { max-width: 100%; }
 
 @media (min-width: 1025px) {
 
-	.portfolio .prevmask { display: block; position: absolute; top: 0; bottom: 0; left: 0; right: 50%;  z-index: 1000; 
+	.portfolio .prevmask { display: block; position: absolute; top: 0; bottom: 0; left: 0; right: 50%;  z-index: 1000;
 		cursor: url("images/arrow-prev-black.png"), w-resize;
 		cursor: -webkit-image-set(url("images/arrow-prev-black.png") 1x, url("images/arrow-prev-black@2x.png") 2x) 0 0, w-resize; /* Webkit */
 	}
@@ -293,7 +294,7 @@ img { max-width: 100%; }
 	.captionwrap { opacity: 1; transition: opacity 0.5s linear; }
 
 
-.slowfade .topheader, 
+.slowfade .topheader,
 	.slowfade .sidenav,
 	.slowfade .controls,
 	.slowfade .caption,
@@ -301,7 +302,7 @@ img { max-width: 100%; }
 	.slowfade .portfolios .blurb,
 	.slowfade .captionwrap { transition: opacity 5s linear; }
 
-.faded .topheader, 
+.faded .topheader,
 	.faded .sidenav,
 	.faded .controls,
 	.faded .caption,

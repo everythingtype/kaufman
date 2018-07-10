@@ -22,7 +22,10 @@
 		<?php $image = get_sub_field('image'); ?>
 		<div class="griditem">
 			<div class="padding">
-				<?php spellerberg_the_image($image,'large'); ?>
+				<div class="ratio"></div>
+				<div class="inner">
+					<?php spellerberg_the_image($image,'large'); ?>
+				</div>
 			</div>
 		</div>
 	<?php endwhile; ?>
