@@ -16,7 +16,7 @@
 
 		if ($('#wpadminbar').length != 0) {
 			wpadminbar =+ $('#wpadminbar').outerHeight();
-		} 
+		}
 
 		contentheight = contentheight - wpadminbar - headerheight - controlsheight;
 
@@ -27,16 +27,14 @@
 		$('.slide').css({
 			 		'max-height': contentheight +'px',
 		});
-		
+
 		$('.slideinner').css({
 			 		'max-height': contentheight +'px',
 		});
-		
+
 		$('.slide img').css({
 			 		'max-height': contentheight +'px',
 		});
-
-
 
 		$('.captionwrap').css({
 	 		'bottom': controlsheight +'px',
@@ -111,7 +109,9 @@
 	function showGrid() {
 		$('.slides').stop().hide();
 		$('.controls').stop().hide();
+		$('.captionwrap .caption:eq(' + currentSlide + ')').stop().hide();
 		$('.grid').stop().show();
+		hideCaptions();
 	}
 
 	function hideGrid(incoming) {
@@ -123,7 +123,18 @@
 		$('.grid').stop().hide();
 		$('.slides').stop().show();
 		$('.controls').stop().show();
+		$('.captionwrap .caption:eq(' + incoming + ')').css('z-index','0').stop().css('opacity','1').show();
 
+	}
+
+	function hideCaptions() {
+		$('.captionwrap').removeClass('visible');
+		$('.controls .caption').removeClass('active');
+	}
+
+	function showCaptions() {
+		$('.captionwrap').addClass('visible');
+		$('.controls .caption').addClass('active');
 	}
 
 
@@ -154,11 +165,9 @@
 
 		$('.controls .caption').on( "click", function() {
 			if ( $(this).hasClass('active') ) {
-				$('.captionwrap').removeClass('visible');
-				$(this).removeClass('active');
+				hideCaptions();
 			} else {
-				$('.captionwrap').addClass('visible');
-				$(this).addClass('active');
+				showCaptions();
 			}
 		});
 
