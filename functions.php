@@ -6,6 +6,7 @@ require_once( 'functions/enqueue.php' );
 require_once( 'functions/images.php' );
 require_once( 'functions/menus.php' );
 require_once( 'functions/portfolios.php' );
+require_once( 'functions/spellerberg_analytics.php' );
 require_once( 'functions/spellerberg_wpsrcset.php' );
 
 
